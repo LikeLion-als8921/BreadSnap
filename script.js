@@ -211,6 +211,11 @@ function showResultFromSelections(districtName) {
     }
 }
 
+// 전역 함수로 export (Vite ES 모듈에서 사용하기 위해)
+window.showResultFromSelections = showResultFromSelections;
+window.closeQuestionModal = closeQuestionModal;
+window.closeResultModal = closeResultModal;
+
 
 // 추천 결과 보여주기 함수
 function showResult(district, type) {

@@ -51,6 +51,20 @@ images/            # 이미지 리소스 (예: img.png)
 ---
 
 ## 사용 방법
+
+### 개발 서버 실행
+```bash
+npm install
+npm run dev
+```
+
+### 프로덕션 빌드
+```bash
+npm run build
+npm run preview
+```
+
+### 기능 사용
 1. 지도에서 원하는 구역을 클릭합니다.
 2. 빵BTI 테스트(식감/맛/토핑)를 진행합니다.
 3. 결과 모달에서 추천 빵집을 확인합니다.

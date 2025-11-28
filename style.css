@@ -8,7 +8,7 @@
 /* 기본 스타일, 여기가 배경 색상 및 이미지 설정 부분 */
 body { 
     font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-    background-image: url('img/background.png');
+    background-image: url('/img/background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
