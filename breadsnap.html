@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreadSnap - 대전 빵 지도</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <!-- 로고 -->
+    <div class="logo">
+        <div class="logo-inner">
+            <span class="bread">Bread</span><span class="snap">Snap</span>
+        </div>
+    </div>
+    
+    <!-- 안내 메시지 -->
+    <div class="guide-message">
+        지도를 클릭하여<br>빵집을 탐색하세요!
+    </div>
+    
+    <!-- 지도 컨테이너 -->
+    <div id="map-container">
+        
+        
+        <!-- 카테고리 버튼 (오른쪽 고정) -->
+        <div class="category-buttons">
+            <button class="cat-btn" data-category="popular">🥖 인기 빵집</button>
+            <button class="cat-btn" data-category="new">🥐 새로운 빵집</button>
+            <button class="cat-btn" data-category="special">🍇 특별한 빵집</button>
+        </div>
+        
+        <!-- 지도 영역 -->
+        <div class="map-area" id="map-area">
+            <svg viewBox="0 0 850 950" class="daejeon-map" xmlns="http://www.w3.org/2000/svg">
+                <!-- 유성구 -->
+                <path
+                    id="yuseong"
+                    class="district"
+                    fill="#f4ca91"
+                    stroke="#8b4513"
+                    stroke-width="2"
+                    d="M450 90 L445 100.5 L428.5 116 L410 111 L404 126 L404 133 L413 153 L413 163 L410.5 165 L407 169.5 L407 177 L401 182 L401 188 L405 199 L405 203 L400 211 L398 220 L394 224 L380 228 L375 235 L367 256 L367 264 L368 265 L366 271 L338 291 L328 287 L319 293 L312 291 L304 284 L298 283 L290 284 L287 288 L282 291 L271 290 L272 294 L271 299 L266 300 L264 305 L259 308 L245 310 L244 331 L242 341 L238 351 L238 370 L235 383 L236 390 L242 406 L242 418 L238 427 L235 439 L222 449 L223 464 L236 480 L237 493 L227 494 L217 502 L210 513 L211 518 L215 525 L213 533 L211 535 L199 536 L199 544 L200 545 L200 555 L195 564 L195 599 L200 604 L198 610 L198 615 L188 617 L183 620 L173 630 L172 634 L177 644 L187 658 L189 660 L193 666 L201 672 L212 676 L220 683 L245 699 L266 699 L285 687 L293 680 L303 679 L300 670 L300 667 L310 656 L313 645 L318 646 L325 641 L324 636 L331 612 L337 604 L349 602 L350 601 L351 586 L354 584 L360 573 L363 571 L365 567 L361 558 L361 545 L356 537 L356 529 L361 527 L362 524 L365 523 L393 523 L396 521 L396 519 L397 516 L391 491 L385 485 L383 477 L389 467 L392 467 L401 461 L408 452 L408 449 L417 443 L424 434 L439 422 L447 420 L452 421 L465 421 L466 420 L472 421 L477 421 L495 414 L508 407 L516 397 L516 384 L517 383 L517 371 L516 370 L516 359 L521 350 L521 339 L520 338 L520 335 L532 320 L532 305 L523 289 L517 283 L513 283 L497 271 L475 249 L469 240 L470 237 L469 235 L470 228 L476 218 L484 214 L496 201 L493 191 L493 171 L494 164 L499 149 L499 131 L497 123 L467 93 L461 90 L450 89 Z"
+                />
+                <!-- 대덕구 -->
+                <path
+                    id="daedeok"
+                    class="district"
+                    fill="#f4ca91"
+                    stroke="#8b4513"
+                    stroke-width="2"
+                    d="M657 144 L641 152 L628 171 L625 182 L625 196 L621 203 L608 215 L599 217 L583 214 L572 202 L558 198 L556 198 L547 198 L540 201 L528 203 L505 203 L499 201 L484 215 L480 216 L476 220 L470 233 L471 235 L470 240 L492 266 L513 282 L517 282 L522 285 L533 305 L533 317 L534 318 L525 332 L521 335 L522 338 L522 351 L518 356 L517 362 L518 366 L517 398 L511 406 L495 415 L479 420 L486 432 L487 439 L498 455 L498 459 L502 468 L502 478 L504 479 L510 480 L517 485 L522 493 L533 490 L532 483 L552 470 L551 467 L554 457 L569 448 L571 449 L576 457 L580 471 L588 473 L589 469 L594 465 L606 466 L610 469 L619 469 L627 474 L629 470 L632 453 L631 451 L630 449 L624 444 L618 430 L614 427 L607 410 L599 396 L602 394 L608 380 L606 375 L606 351 L610 342 L619 331 L632 325 L643 309 L647 295 L649 293 L653 294 L661 275 L661 269 L676 245 L686 243 L693 231 L711 214 L711 209 L709 202 L706 201 L699 201 L690 205 L673 208 L664 205 L661 202 L657 199 L655 195 L654 188 L663 173 L666 165 L668 149 L665 144 L657 144 Z"
+                />
+                <!-- 동구 -->
+                <path
+                    id="dong"
+                    class="district"
+                    fill="#f4ca91"
+                    stroke="#8b4513"
+                    stroke-width="2"
+                    d="M681 245 L678 246 L662 269 L661 279 L653 296 L648 294 L645 308 L634 324 L617 336 L607 352 L607 374 L609 377 L601 396 L601 400 L607 408 L615 426 L623 436 L626 445 L632 448 L633 451 L631 467 L628 475 L620 471 L610 470 L606 467 L601 466 L592 467 L588 475 L579 472 L574 455 L571 450 L567 450 L558 455 L553 470 L546 476 L537 478 L533 484 L535 490 L534 491 L526 492 L522 496 L524 500 L535 506 L546 522 L554 528 L567 548 L578 573 L587 578 L592 578 L596 581 L596 585 L600 595 L610 602 L612 606 L616 626 L613 627 L607 625 L595 627 L592 616 L567 630 L562 631 L554 629 L552 632 L552 637 L562 649 L564 656 L563 659 L564 670 L573 675 L577 681 L576 688 L556 709 L557 713 L555 722 L553 723 L553 725 L565 723 L569 731 L568 734 L574 745 L583 751 L583 764 L585 766 L576 771 L574 773 L574 783 L569 791 L563 796 L559 796 L551 791 L545 796 L547 799 L549 802 L547 812 L551 818 L545 831 L549 834 L549 837 L543 844 L544 850 L556 852 L559 856 L564 868 L585 880 L605 869 L610 862 L608 850 L609 848 L616 843 L619 840 L620 835 L626 830 L639 828 L635 818 L635 807 L657 797 L658 790 L674 782 L681 781 L683 771 L687 768 L688 768 L688 750 L684 749 L679 742 L678 736 L678 731 L682 726 L682 716 L678 715 L674 710 L674 705 L677 702 L683 688 L681 680 L681 676 L693 666 L701 653 L701 649 L699 647 L694 632 L685 616 L686 606 L694 606 L695 607 L702 594 L701 588 L694 579 L694 574 L702 567 L700 559 L701 553 L710 540 L707 530 L706 506 L705 503 L714 497 L720 488 L720 483 L733 481 L744 474 L751 463 L752 453 L754 448 L754 436 L759 426 L756 411 L758 402 L756 399 L756 390 L755 389 L756 379 L760 376 L768 367 L771 368 L788 352 L796 356 L800 356 L808 353 L817 357 L823 354 L828 348 L827 346 L819 345 L814 341 L811 330 L800 322 L790 308 L792 294 L785 292 L778 294 L768 294 L759 289 L754 288 L734 287 L730 309 L726 319 L719 324 L707 323 L695 303 L694 289 L680 262 L680 255 L684 247 L681 245 Z"
+                />
+                <!-- 서구 -->
+                <path
+                    id="seo"
+                    class="district"
+                    fill="#f4ca91"
+                    stroke="#8b4513"
+                    stroke-width="2"
+                    d="M448 421 L440 423 L429 430 L424 437 L416 445 L412 446 L405 459 L391 468 L385 476 L387 484 L393 494 L397 508 L398 517 L399 520 L394 524 L366 524 L363 525 L362 529 L357 528 L357 535 L361 547 L362 557 L366 565 L365 570 L362 572 L358 581 L352 587 L351 601 L348 604 L333 610 L325 629 L326 641 L319 647 L313 653 L306 663 L304 664 L301 668 L304 675 L304 680 L302 680 L292 682 L284 689 L266 699 L265 704 L250 713 L246 717 L247 723 L242 729 L243 752 L247 762 L247 775 L255 777 L269 793 L269 806 L276 811 L281 812 L288 811 L290 808 L292 791 L294 796 L302 805 L315 810 L329 833 L328 836 L328 848 L333 858 L340 858 L341 857 L345 858 L354 866 L354 870 L348 880 L348 884 L352 889 L352 910 L354 911 L358 910 L362 905 L377 877 L381 875 L384 871 L382 862 L382 856 L389 844 L408 831 L409 823 L413 819 L418 818 L418 811 L412 799 L412 793 L416 785 L416 782 L412 777 L415 771 L416 761 L420 752 L418 747 L419 743 L418 735 L409 726 L410 702 L415 688 L418 687 L421 688 L431 686 L434 683 L435 676 L432 662 L426 652 L426 646 L430 643 L430 635 L429 634 L438 624 L448 625 L455 612 L452 600 L452 594 L459 587 L460 582 L466 575 L459 564 L463 552 L462 548 L467 547 L468 540 L473 530 L490 516 L499 505 L499 492 L498 491 L501 480 L501 469 L497 456 L486 439 L483 428 L478 422 L451 422 L448 421 Z"
+                />
+                <!-- 중구 -->
+                <path
+                    id="jung"
+                    class="district"
+                    fill="#f4ca91"
+                    stroke="#8b4513"
+                    stroke-width="2"
+                    d="M503 479 L499 485 L501 495 L501 503 L497 511 L481 524 L473 532 L469 540 L469 547 L466 548 L460 557 L460 564 L467 574 L461 583 L460 588 L453 593 L456 604 L456 613 L449 626 L437 625 L431 633 L431 644 L427 645 L427 652 L436 673 L436 680 L438 679 L447 681 L450 683 L454 689 L474 706 L471 723 L466 730 L466 739 L468 747 L475 756 L474 764 L467 773 L467 778 L479 782 L486 783 L496 781 L496 789 L504 808 L511 811 L516 820 L516 826 L512 832 L512 834 L528 844 L536 847 L541 846 L548 837 L548 835 L544 832 L544 829 L549 822 L548 803 L544 799 L544 796 L550 790 L559 795 L566 793 L573 782 L572 776 L574 770 L583 766 L582 765 L582 753 L578 750 L567 735 L568 733 L567 730 L563 727 L561 727 L554 726 L552 725 L555 721 L555 708 L573 690 L576 686 L576 681 L565 671 L562 664 L562 662 L562 651 L551 638 L551 630 L553 628 L558 630 L566 629 L591 615 L593 615 L595 625 L602 624 L615 625 L610 605 L607 602 L595 583 L591 579 L581 576 L576 572 L556 533 L548 526 L537 511 L527 504 L517 488 L510 481 L503 479 Z"
+                />
+                
+                <!-- 구 이름 라벨 -->
+                <text x="370" y="400" text-anchor="middle" class="district-label">유성구</text>
+                <text x="585" y="300" text-anchor="middle" class="district-label">대덕구</text>
+                <text x="650" y="550" text-anchor="middle" class="district-label">동구</text>
+                <text x="360" y="680" text-anchor="middle" class="district-label">서구</text>
+                <text x="510" y="650" text-anchor="middle" class="district-label">중구</text>
+            </svg>
+        </div>
+        
+        <!-- 검색창 
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="구역별 빵집 검색...">
+        </div> -->
+        
+        <!-- 캐릭터 -->
+        <div class="character">
+            <img src="img/character.png" alt="" width="300" height="400" />
+        </div>
+    </div>
+    
+    <!-- 빵BTI 질문 모달 -->
+    <div id="question-modal" class="hidden">
+        <h3>빵BTI 테스트</h3>
+        <p>당신에게 맞는 빵집을 찾아보세요!</p>
+        <button class="btn">시작하기</button>
+    </div>
+    
+    <!-- 추천 결과 모달 -->
+    <div id="result-modal" class="hidden">
+        <h3>추천 결과</h3>
+        <p>당신에게 맞는 빵집을 찾았습니다!</p>
+        <button class="btn">확인</button>
+    </div>
+    
+    <!-- 구별 빵집 모달 -->
+    <div id="district-modal" class="hidden">
+        <div class="district-modal-content">
+            <h2 id="district-title">구별 빵집</h2>
+            <div class="bakery-categories">
+                <div class="bakery-category">
+                    <h3>🥖 인기 빵집</h3>
+                    <ul id="popular-bakeries" class="bakery-list"></ul>
+                </div>
+                <div class="bakery-category">
+                    <h3>🥐 새로운 빵집</h3>
+                    <ul id="new-bakeries" class="bakery-list"></ul>
+                </div>
+                <div class="bakery-category">
+                    <h3>🍇 특별한 빵집</h3>
+                    <ul id="special-bakeries" class="bakery-list"></ul>
+                </div>
+            </div>
+            <button class="btn close-btn" id="district-modal-close">닫기</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+
